@@ -92,3 +92,12 @@ for n in net:
         k+=1
 print(k)
 
+#задание 14 системы счисления
+for x in '0123456789abcdefghijk':
+    a=int(f'82934{x}2',21)
+    b=int(f'2924{x}{x}7',21)
+    c=int(f'67564{x}8',21)
+    if (a+b+c)%20==0:
+        print((a+b+c)//20)
+        break
+
