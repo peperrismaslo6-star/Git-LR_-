@@ -101,3 +101,60 @@ for x in '0123456789abcdefghijk':
         print((a+b+c)//20)
         break
 
+print('А теперь самый сок')
+#задание 24 работа со строками
+s=open('242.txt').readline()
+for c in '02468':s=s.replace(c,'2')
+ks=m=l=0
+for r in range(len(s)):
+    if s[r]=='S':ks+=1
+    if s[r]=='2':
+        ks=0
+        l=r
+    if ks==31 and s[l]=='2':
+        m=max(m,r-l+1)
+print(m)
+
+#задание 27
+from math import dist
+
+n=3
+cl={1:[],2:[],3:[]}
+for s in open('27'):
+    s=s.replace(',','.')
+    x,y,har=s.split()
+    x,y=float(x),float(y)
+    if y>23:
+        cl[1]+=[[x,y,har]]
+    elif x>20:
+        cl[2]+=[[x,y,har]]
+    elif x<20 and y<23:
+        cl[3]+=[[x,y,har]]
+for i in cl:
+    print(i,len(cl[i]),cl[i])
+def centr(cl):
+    res=(0,0)
+    su=10**10
+    for a in cl:
+        sua=0
+        for b in cl:
+
+            sua+=dist(a[:2],b[:2])
+        if sua<su:
+            res=a
+            su=sua
+    return res
+
+cl18=[p for p in cl[1] if p[2]!='VII' and int(p[2][1])>=8 ]
+cl28=[p for p in cl[2] if p[2]!='VII' and int(p[2][1])>=8]
+cl38=[p for p in cl[3] if p[2]!='VII' and int(p[2][1])>=8]
+
+b1=min([dist(p1[:2],p2[:2]) for p1 in cl18 for p2 in cl28]+
+       [dist(p1[:2],p2[:2]) for p1 in cl28 for p2 in cl38]+
+       [dist(p1[:2],p2[:2]) for p1 in cl18 for p2 in cl38])
+
+f=([dist(p1[:2],p2[:2]) for p1 in cl18 for p2 in cl18 if p1!=p2]+
+   [dist(p1[:2],p2[:2]) for p1 in cl28 for p2 in cl28 if p1!=p2]+
+   [dist(p1[:2],p2[:2]) for p1 in cl38 for p2 in cl38 if p1!=p2])
+b2=sum(f)/len(f)
+print(int(b1*10000),int(b2*10000))
