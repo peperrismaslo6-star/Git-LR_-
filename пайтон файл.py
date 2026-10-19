@@ -49,7 +49,7 @@ for x in range(-10,10):
         dot(3,'red')
 done()
 
-#задание 8
+#задание 8 комбинаторика
 from itertools import product
 
 k=0
@@ -58,3 +58,14 @@ for i in product('0123456789abcdef',repeat=5):
     if x[0]!='0' and x.count('6')==2 and all(a+'6'not in x for a in '02468ace') and all('6'+a not in x for a in '02468ace'):
         k+=1
         print(x,k)
+
+#задание 9 работа с таблицей
+s=0
+for d in open('9a'):
+    a=[int(n) for n in d.split()]
+    a2=[n for n in a if a.count(n)==2]
+    a1=[n for n in a if a.count(n)==1]
+    if len(a2)==4 and len(a1)==3 and max(a) in a1:
+        s=sum(a)
+        print(a,s)
+        break
