@@ -69,3 +69,13 @@ for d in open('9a'):
         s=sum(a)
         print(a,s)
         break
+
+#задание 11 инф объем фото, видео, звука
+from math import log2, ceil
+
+for a in range(100000,0,-1):
+    bit=ceil(log2(a))
+    bat=ceil(bit*23/8)
+    if bat*500000<=21*1024*1024:
+        print(a)
+        break
