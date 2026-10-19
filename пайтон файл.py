@@ -70,6 +70,7 @@ for d in open('9a'):
         print(a,s)
         break
 
+
 #задание 11 инф объем фото, видео, звука
 from math import log2, ceil
 
@@ -79,3 +80,15 @@ for a in range(100000,0,-1):
     if bat*500000<=21*1024*1024:
         print(a)
         break
+
+#задание 13 IP адреса
+from ipaddress import ip_network
+
+k=0
+net=ip_network('123.222.111.192/255.255.255.248',0)
+for n in net:
+    d=bin(int(n))[2:].zfill(32)
+    if d[24:].count('0')%3!=0:
+        k+=1
+print(k)
+
