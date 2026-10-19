@@ -6,6 +6,7 @@ for x in (0,1):
             for w in (0, 1):
                 if (w and ((y<=x)<=z))==0:
                     print(x,y,z,w,' 0')
+                    
 #задание 5 составление алгоритма
 def f(n):
     s=''
@@ -25,3 +26,25 @@ for n in range(100000,0,-1):
     if g(n)<1000:
         print(n)
         break
+        
+#задание 6 Черепашка
+from turtle import *
+left(90)
+tracer(-1)
+k=18
+down()
+for i in range(7):
+    fd(20*k)
+    rt(240)
+    fd(10*k)
+    rt(240)
+    fd(20*k)
+    rt(120)
+    fd(10*k)
+    rt(120)
+up()
+for x in range(-10,10):
+    for y in range(21):
+        goto(x*k,y*k)
+        dot(3,'red')
+done()
