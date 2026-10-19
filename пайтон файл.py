@@ -48,3 +48,13 @@ for x in range(-10,10):
         goto(x*k,y*k)
         dot(3,'red')
 done()
+
+#задание 8
+from itertools import product
+
+k=0
+for i in product('0123456789abcdef',repeat=5):
+    x=''.join(i)
+    if x[0]!='0' and x.count('6')==2 and all(a+'6'not in x for a in '02468ace') and all('6'+a not in x for a in '02468ace'):
+        k+=1
+        print(x,k)
